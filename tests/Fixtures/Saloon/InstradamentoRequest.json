@@ -1,0 +1,13 @@
+{
+    "statusCode": 200,
+    "headers": {
+        "Date": "Fri, 21 Feb 2025 13:17:48 GMT",
+        "Content-Type": "application\/json; charset=utf-8",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Server": "Microsoft-IIS\/10.0",
+        "X-Powered-By": "ASP.NET",
+        "Access-Control-Allow-Origin": "*"
+    },
+    "data": "{\"cap\":\"10099\",\"localita\":\"SAN MAURO TORINESE\",\"provincia\":\"TO\",\"nazione\":\"I\",\"precisione\":1,\"instradamento\":\"TOY\",\"gate\":\"T05\",\"descrizione_segnacollo_1\":\"TOY\",\"descrizione_segnacollo_2\":\"TOY       \/\",\"centro_operativo_ragione_sociale\":\"ARCO TORINO 2\",\"centro_operativo_cap\":\"10099\",\"centro_operativo_localita\":\"SAN MAURO TORINESE\",\"centro_operativo_provincia\":\"TO\",\"centro_operativo_telefono\":\"0113495432\",\"centro_operativo_fax\":\"0112741652\",\"centro_operativo_mail\":\"arco.torino2@arcospedizioni.it\",\"risultato\":true,\"errore\":\"\"}"
+}

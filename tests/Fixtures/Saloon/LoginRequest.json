@@ -1,0 +1,13 @@
+{
+    "statusCode": 200,
+    "headers": {
+        "Date": "Fri, 21 Feb 2025 13:11:49 GMT",
+        "Content-Type": "text\/plain; charset=utf-8",
+        "Transfer-Encoding": "chunked",
+        "Connection": "keep-alive",
+        "Server": "Microsoft-IIS\/10.0",
+        "X-Powered-By": "ASP.NET",
+        "Access-Control-Allow-Origin": "*"
+    },
+    "data": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiYWRtaW4iOnRydWUsImlhdCI6MTUxNjIzOTAyMn0.KMUFsIDTnFmyG3nMiGM6H9FNFUROf3wh7SmqJp-QV30"
+}
