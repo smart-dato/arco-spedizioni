@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use SmartDato\ArcoSpedizioni\LabelBuilder;
 
 it('can creat label', function () {

@@ -1,13 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace SmartDato\ArcoSpedizioni;
 
 use Dompdf\Dompdf;
-use Dompdf\Options;
+use RuntimeException;
 
-class LabelBuilder
+final class LabelBuilder
 {
-
     public function make(array $data): string
     {
         // Load HTML
@@ -24,13 +25,12 @@ class LabelBuilder
 
         $dompdf->loadHtml($html);
         $dompdf->render();
-        $pdf =  $dompdf->output();
+        $pdf = $dompdf->output();
 
-        if($pdf === null){
-            throw new \RuntimeException('Error while generating PDF');
+        if ($pdf === null) {
+            throw new RuntimeException('Error while generating PDF');
         }
 
         return $pdf;
     }
-
 }
