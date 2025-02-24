@@ -18,6 +18,8 @@ final class ArcoSpedizioniServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('arco-spedizioni-sdk')
-            ->hasConfigFile();
+            ->hasConfigFile()
+            ->hasViews()
+        ;
     }
 }
