@@ -1,5 +1,6 @@
 <?php
 
+declare(strict_types=1);
 
 use SmartDato\ArcoSpedizioni\Generators\TxtFileGenerator;
 
@@ -60,13 +61,11 @@ it('can create a shipment file', function () {
 
         ->content();
 
-    $result = "053696                          BALAN                              VIA S. AMBROGIO, 107          35010TREBASELEGHE                  PD   B-2025-F-75320250221                       30105335       LA LOCANDA DEI CANTONIERI DI LA CANTONIERA SR                                   VIA ARETINA, 49/D                  50066   REGGELLO                      FII   000060060000000000423001200000000 0000000000000000000                      0000000000000000                                                                                                                                                                                                                                                                2025999060019430000001AR AR        /AR       2025999060019430000001AR           000006                                                       00000                                                                                                                                                                                                                                                            E";
+    $result = '053696                          BALAN                              VIA S. AMBROGIO, 107          35010TREBASELEGHE                  PD   B-2025-F-75320250221                       30105335       LA LOCANDA DEI CANTONIERI DI LA CANTONIERA SR                                   VIA ARETINA, 49/D                  50066   REGGELLO                      FII   000060060000000000423001200000000 0000000000000000000                      0000000000000000                                                                                                                                                                                                                                                                2025999060019430000001AR AR        /AR       2025999060019430000001AR           000006                                                       00000                                                                                                                                                                                                                                                            E';
     ray($content, $result);
     expect($content)
         ->toBeString()
         ->toHaveLength(676)
-        ->toBe($result)
-    ;
-
+        ->toBe($result);
 
 });
