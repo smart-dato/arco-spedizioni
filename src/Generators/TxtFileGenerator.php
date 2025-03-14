@@ -6,10 +6,19 @@ namespace SmartDato\ArcoSpedizioni\Generators;
 
 final class TxtFileGenerator
 {
+    /**
+     * @var array<int, array<mixed>>
+     */
     private array $data = [];
 
+    /**
+     * @var array<string, string|float|int|bool>
+     */
     private array $currentRecord = [];
 
+    /**
+     * @var array<int, array<string, string|int>>
+     */
     private array $structure = [
         // 1
         [
@@ -595,7 +604,7 @@ final class TxtFileGenerator
     {
         $formattedLines = [];
         // Find the max "end" position to know how long each line should be
-        $maxEnd = max(array_column($this->structure, 'end'));
+        $maxEnd = (int) max(array_column($this->structure, 'end'));
 
         foreach ($this->data as $record) {
             // Create a blank line of the appropriate length
