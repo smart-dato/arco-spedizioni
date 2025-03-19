@@ -4,22 +4,12 @@ declare(strict_types=1);
 
 namespace SmartDato\ArcoSpedizioni\Generators;
 
-final class TxtFileGenerator
+final class TxtFileGenerator extends FileGenerator
 {
-    /**
-     * @var array<int, array<mixed>>
-     */
-    private array $data = [];
-
-    /**
-     * @var array<string, string|float|int|bool>
-     */
-    private array $currentRecord = [];
-
     /**
      * @var array<int, array<string, string|int>>
      */
-    private array $structure = [
+    protected array $structure = [
         // 1
         [
             'field' => 'client_code',
@@ -571,58 +561,4 @@ final class TxtFileGenerator
             'note' => 'NR.PIANO DI CONSEGNA (IN QUESTO CASO IMPOSTARE LA DISPOSIZIONE 1/2 CON RELATIVO SERVIZIO "CONSEGNA AL PIANO")',
         ],
     ];
-
-    public function setField(string $field, string $value): self
-    {
-        $this->currentRecord[$field] = $value;
-
-        return $this;
-    }
-
-    public function addRecord(): self
-    {
-        $this->data[] = $this->currentRecord;
-        $this->currentRecord = [];
-
-        return $this;
-    }
-
-    public function store(string $filename): self
-    {
-        $fileContent = $this->formatData();
-        file_put_contents($filename, $fileContent);
-
-        return $this;
-    }
-
-    public function content(): string
-    {
-        return $this->formatData();
-    }
-
-    private function formatData(): string
-    {
-        $formattedLines = [];
-        // Find the max "end" position to know how long each line should be
-        $maxEnd = (int) max(array_column($this->structure, 'end'));
-
-        foreach ($this->data as $record) {
-            // Create a blank line of the appropriate length
-            $line = str_repeat(' ', $maxEnd);
-
-            // Fill each field at the correct position
-            foreach ($this->structure as $fieldInfo) {
-                $value = $record[$fieldInfo['field']] ?? '';
-                // Pad or truncate to the exact field length
-                $value = mb_str_pad($value, $fieldInfo['length'], ' ', STR_PAD_RIGHT);
-                // Replace the substring in the line
-                $line = substr_replace($line, $value, $fieldInfo['start'] - 1, $fieldInfo['length']);
-            }
-
-            $formattedLines[] = $line;
-        }
-
-        // Join lines with a newline character
-        return implode("\n", $formattedLines)."\n";
-    }
 }
