@@ -44,7 +44,7 @@
 
     .barcode-container {
         margin-top: 10px;
-        margin-bottom: 20px;
+        margin-bottom: 10px;
         padding: 0 20px;
     }
 
@@ -58,7 +58,7 @@
         width: 100%;
         border-collapse: collapse;
         border: none;
-        margin-bottom: 15px;
+        margin-bottom: 10px;
     }
 
     .route-info td {
@@ -180,8 +180,8 @@
                     <div class="date">Dt. {{$date}}</div>
                     <div class="weight">KG. {{$weight}}</div>
                     <div class="vol">Vol. {{$volume}}</div>
-                    <div class="pr-total">Pr.Cl {{$parcelNumber}}/{{$toalParcels}}</div>
-                    <div class="total">CL. {{$toalParcels}}</div>
+                    <div class="pr-total">Pr.Cl {{$parcelNumber}}/{{$totalParcels}}</div>
+                    <div class="total">CL. {{$totalParcels}}</div>
                 </td>
             </tr>
             </tbody>
