@@ -111,8 +111,8 @@
     }
 
     .personal-info .company-name {
-        font-size: 20px;
-        line-height: 24px;
+        font-size: 18px;
+        line-height: 20px;
         font-weight: 600;
     }
 
@@ -120,7 +120,7 @@
     .personal-info .zip-code,
     .personal-info .info-name {
         font-size: 16px;
-        line-height: 22px;
+        line-height: 20px;
         font-weight: 400;
     }
 
@@ -171,7 +171,7 @@
             <tbody>
             <tr>
                 <td>
-                    <div class="company-name">Rag. soc. {{$receiver}}</div>
+                    <div class="company-name">{{$receiver}}</div>
                     <div class="address">{{$receiverStreet}}</div>
                     <div class="zip-code">{{$receiverAddress}}</div>
                     <div class="info">Mitt: {{$shipper}}</div>
