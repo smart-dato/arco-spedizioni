@@ -22,14 +22,14 @@ final class DdtEsitiParser
         ['name' => 'R29PES', 'type' => 'S', 'start' => 176, 'end' => 183, 'decimals' => 1, 'desc' => 'Peso Spedizione'],
         [
             'name' => 'R29VOL', 'type' => 'S', 'start' => 183, 'end' => 188, 'decimals' => 2,
-            'desc' => 'Volume Spedizione'
+            'desc' => 'Volume Spedizione',
         ],
         ['name' => 'R29NGI', 'type' => 'A', 'start' => 188, 'end' => 201, 'desc' => 'Numero Giacenza'],
         ['name' => 'R29DGI', 'type' => 'A', 'start' => 201, 'end' => 381, 'desc' => 'Motivo Giacenza'],
         ['name' => 'R29DRG', 'type' => 'A', 'start' => 381, 'end' => 441, 'desc' => 'Descrizione Reso o Riconsegna'],
         [
             'name' => 'R29ROR', 'type' => 'A', 'start' => 441, 'end' => 456,
-            'desc' => 'Riferimento Originale DDT Giacenza'
+            'desc' => 'Riferimento Originale DDT Giacenza',
         ],
         ['name' => 'R29BOR', 'type' => 'A', 'start' => 456, 'end' => 471, 'desc' => 'Bolla Arco Originale Giacenza'],
         ['name' => 'R29DCE', 'type' => 'S', 'start' => 471, 'end' => 479, 'desc' => 'Data Evento'],
@@ -41,7 +41,6 @@ final class DdtEsitiParser
     ];
 
     /**
-     * @param  string  $line
      * @return array<string, TrackingEvent|string|float>
      */
     public function parseLine(string $line): array
@@ -80,13 +79,12 @@ final class DdtEsitiParser
     }
 
     /**
-     * @param  string  $filePath
      * @return mixed
      */
     public function parseFile(string $filePath): array
     {
         $lines = file($filePath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
-        return array_map(fn($line) => $this->parseLine($line), $lines);
+        return array_map(fn ($line) => $this->parseLine($line), $lines);
     }
 }
