@@ -18,12 +18,12 @@ enum TrackingEvent: string
     {
         $label = mb_trim($label);
 
-        return match ($label) {
-            'Consegnata' => self::DELIVERED,
-            'Giacenza Aperta' => self::STORAGE_OPENED,
-            'Giacenza Chiusa' => self::STORAGE_CLOSED,
-            'Messa in Consegna' => self::OUT_FOR_DELIVERY,
-            'Messa in Transito' => self::IN_TRANSIT,
+        return match (mb_strtolower($label)) {
+            'consegnata' => self::DELIVERED,
+            'giacenza aperta' => self::STORAGE_OPENED,
+            'giacenza chiusa' => self::STORAGE_CLOSED,
+            'messa in consegna' => self::OUT_FOR_DELIVERY,
+            'messa in transito' => self::IN_TRANSIT,
             default => throw new InvalidArgumentException("Unknown event label: '$label'"),
         };
     }
