@@ -11,7 +11,7 @@ final class LabelBuilder
 {
     public function zpl(array $data): string
     {
-        $html = view('arco-spedizioni-sdk::zpl', $data)->render();
+        return view('arco-spedizioni-sdk::zpl', $data)->render();
     }
 
     public function pdf(array $data): string
