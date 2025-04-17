@@ -7,7 +7,7 @@ use SmartDato\ArcoSpedizioni\LabelBuilder;
 it('can creat label', function () {
 
     $output = (new LabelBuilder())
-        ->make(
+        ->pdf(
             data: [
                 'barcode' => 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALsAAAAyCAYAAAAEL6p6AAAACXBIWXMAAA7EAAAOxAGVKw4bAAAA80lEQVR4nO3SMY4CMRAAQfv+/2cTrWStLFgCkuuqCNgZY1DPtdYaD8w5xxhjrLXGnHNca/vr++w1v39+7e9n7U7n3veezt539pnT/n329H2nu78799ezT3Y//Zb9/bf/2f7s2zvtTm3sz97d82HC4+/RFPwDYidD7GSInQyxkyF2MsROhtjJEDsZYidD7GSInQyxkyF2MsROhtjJEDsZYidD7GSInQyxkyF2MsROhtjJEDsZYidD7GSInQyxkyF2MsROhtjJEDsZYidD7GSInQyxkyF2MsROhtjJEDsZYidD7GSInQyxkyF2MsROhtjJEDsZL6jpjmDZ4E69AAAAAElFTkSuQmCC',
                 'client' => 'CLIENT',

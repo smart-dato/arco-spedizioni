@@ -9,10 +9,15 @@ use RuntimeException;
 
 final class LabelBuilder
 {
-    public function make(array $data): string
+    public function zpl(array $data): string
+    {
+        $html = view('arco-spedizioni-sdk::zpl', $data)->render();
+    }
+
+    public function pdf(array $data): string
     {
         // Load HTML
-        $html = view('arco-spedizioni-sdk::label', $data)->render();
+        $html = view('arco-spedizioni-sdk::pdf', $data)->render();
 
         $dompdf = new Dompdf();
 
