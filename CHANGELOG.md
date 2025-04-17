@@ -2,6 +2,10 @@
 
 All notable changes to `arco-spedizioni-sdk` will be documented in this file.
 
+## 0.0.11 - 2025-04-17
+
+**Full Changelog**: https://github.com/smart-dato/arco-spedizioni/compare/0.0.10...0.0.11
+
 ## 0.0.10 - 2025-04-14
 
 **Full Changelog**: https://github.com/smart-dato/arco-spedizioni/compare/0.0.9...0.0.10
