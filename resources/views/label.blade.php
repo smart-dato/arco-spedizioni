@@ -111,7 +111,7 @@
     }
 
     .personal-info .company-name {
-        font-size: 18px;
+        font-size: 16px;
         line-height: 20px;
         font-weight: 600;
     }
@@ -119,14 +119,14 @@
     .personal-info .address,
     .personal-info .zip-code,
     .personal-info .info-name {
-        font-size: 16px;
+        font-size: 14px;
         line-height: 20px;
         font-weight: 400;
     }
 
 
     .personal-info .date  {
-        font-size: 14px;
+        font-size: 12px;
         line-height: 20px;
         font-weight: 400;
     }
@@ -135,7 +135,7 @@
     .personal-info .vol,
     .personal-info .pr-total,
     .personal-info .total {
-        font-size: 12px;
+        font-size: 10px;
         line-height: 18px;
         font-weight: 400;
     }
