@@ -44,7 +44,7 @@
 
     .barcode-container {
         margin-top: 10px;
-        margin-bottom: 10px;
+        margin-bottom: 2px;
         padding: 0 20px;
     }
 
@@ -58,7 +58,7 @@
         width: 100%;
         border-collapse: collapse;
         border: none;
-        margin-bottom: 10px;
+        margin-bottom: 8px;
     }
 
     .route-info td {
@@ -66,10 +66,10 @@
     }
 
     .route-info .route-decoding {
-        font-size: 24px;
+        font-size: 22px;
         line-height: 30px;
         font-weight: bold;
-        margin-bottom: 10px;
+        margin-bottom: 8px;
     }
 
     .route-info .shipping {
@@ -80,12 +80,12 @@
     }
 
     .route-info .shipping span {
-        font-size: 20px;
+        font-size: 16px;
     }
 
     .route-info .gate {
         text-align: right;
-        font-size: 20px;
+        font-size: 16px;
         line-height: 24px;
         font-weight: 600;
         margin-bottom: 5px;
@@ -94,7 +94,7 @@
     .route-info .reference {
         text-align: right;
         padding-right: 40px;
-        font-size: 12px;
+        font-size: 10px;
         line-height: 18px;
         font-weight: bold;
     }
@@ -111,8 +111,8 @@
     }
 
     .personal-info .company-name {
-        font-size: 16px;
-        line-height: 20px;
+        font-size: 14px;
+        line-height: 16px;
         font-weight: 600;
     }
 
@@ -120,14 +120,14 @@
     .personal-info .zip-code,
     .personal-info .info-name {
         font-size: 14px;
-        line-height: 20px;
+        line-height: 16px;
         font-weight: 400;
     }
 
 
     .personal-info .date  {
         font-size: 12px;
-        line-height: 20px;
+        line-height: 16px;
         font-weight: 400;
     }
 
