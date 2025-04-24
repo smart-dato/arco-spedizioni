@@ -23,7 +23,7 @@ enum TrackingEvent: string
             'giacenza aperta' => self::STORAGE_OPENED,
             'giacenza chiusa' => self::STORAGE_CLOSED,
             'messa in consegna' => self::OUT_FOR_DELIVERY,
-            'messa in transito' => self::IN_TRANSIT,
+            'messa in transito', 'merce in transito' => self::IN_TRANSIT,
             default => throw new InvalidArgumentException("Unknown event label: '$label'"),
         };
     }
