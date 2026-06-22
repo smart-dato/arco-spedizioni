@@ -19,18 +19,12 @@ use SmartDato\ArcoSpedizioni\Requests\NumeratoriBolleRequest;
 
 final class ArcoSpedizioni
 {
-    private ArcoSpedizioniConnector $connector;
+    private ?ArcoSpedizioniConnector $connector = null;
 
-    /**
-     * @throws ArcoSpedizioniRequestException
-     * @throws ArcoSpedizioniConnectionException
-     */
-    public function __construct(?string $username = null, ?string $password = null)
-    {
-        $this->connector = new ArcoSpedizioniConnector(
-            token: self::token($username, $password)
-        );
-    }
+    public function __construct(
+        private readonly ?string $username = null,
+        private readonly ?string $password = null,
+    ) {}
 
     /**
      * @throws ArcoSpedizioniConnectionException
@@ -60,7 +54,7 @@ final class ArcoSpedizioni
     public function nextWaybillNumber(): mixed
     {
         try {
-            $response = $this->connector->send(
+            $response = $this->connector()->send(
                 new NumeratoriBolleRequest()
             );
         } catch (RequestException|FatalRequestException $e) {
@@ -91,21 +85,28 @@ final class ArcoSpedizioni
     public function routing(ShipmentData $route): array
     {
         try {
-            $response = $this->connector->send(
+            $response = $this->connector()->send(
                 new InstradamentoRequest($route)
             );
         } catch (RequestException|FatalRequestException $e) {
             throw new ArcoSpedizioniConnectionException();
         }
 
-        $this->connector->send(
-            new InstradamentoRequest($route)
-        );
-
         if ($response->failed()) {
             throw new ArcoSpedizioniRequestException();
         }
 
         return $response->json();
+    }
+
+    /**
+     * @throws ArcoSpedizioniRequestException
+     * @throws ArcoSpedizioniConnectionException
+     */
+    private function connector(): ArcoSpedizioniConnector
+    {
+        return $this->connector ??= new ArcoSpedizioniConnector(
+            token: self::token($this->username, $this->password)
+        );
     }
 }

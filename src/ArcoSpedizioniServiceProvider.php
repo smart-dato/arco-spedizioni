@@ -21,4 +21,17 @@ final class ArcoSpedizioniServiceProvider extends PackageServiceProvider
             ->hasConfigFile()
             ->hasViews();
     }
+
+    public function packageRegistered(): void
+    {
+        $this->app->singleton(ArcoSpedizioni::class, function (): ArcoSpedizioni {
+            /** @var ?string $username */
+            $username = config('arco-spedizioni-sdk.username');
+
+            /** @var ?string $password */
+            $password = config('arco-spedizioni-sdk.password');
+
+            return new ArcoSpedizioni($username, $password);
+        });
+    }
 }
