@@ -32,8 +32,9 @@ it('can creat pdf label', function () {
                 'totalParcels' => '2',
             ]
         );
-    $file = 'storages/labels/'.now()->format('YmdHis').'_label.pdf';
-    file_put_contents($file, $output);
+    expect($output)->toBeString()
+        ->and(mb_substr($output, 0, 4))->toBe('%PDF')
+        ->and(mb_strlen($output))->toBeGreaterThan(1000);
 });
 
 it('can creat zpl label', function () {
@@ -64,6 +65,8 @@ it('can creat zpl label', function () {
                 'totalParcels' => '2',
             ]
         );
-    $file = 'storages/labels/'.now()->format('YmdHis').'_label.zpl';
-    file_put_contents($file, $output);
+    expect($output)->toBeString()
+        ->and($output)->toContain('^XA')
+        ->and($output)->toContain('^XZ')
+        ->and($output)->toContain('2025xxx000000010000001MZ1');
 });

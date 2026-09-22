@@ -4,10 +4,21 @@ declare(strict_types=1);
 
 namespace SmartDato\ArcoSpedizioni\Parsers;
 
+use RuntimeException;
 use SmartDato\ArcoSpedizioni\Enums\TrackingEvent;
 
 final class DdtEsitiParser
 {
+    /**
+     * @var list<array{
+     *     name: string,
+     *     type: string,
+     *     start: int,
+     *     end: int,
+     *     decimals?: int,
+     *     desc?: string,
+     * }>
+     */
     private array $structure = [
         ['name' => 'R29NRB', 'type' => 'A', 'start' => 0, 'end' => 15, 'desc' => 'Numero Spedizione Arco'],
         ['name' => 'R29DTA', 'type' => 'S', 'start' => 15, 'end' => 23, 'desc' => 'Data Spedizione'],
@@ -42,6 +53,9 @@ final class DdtEsitiParser
 
     /**
      * @return array<string, TrackingEvent|string|float>
+     */
+    /**
+     * @return array<string, mixed>
      */
     public function parseLine(string $line): array
     {
@@ -79,12 +93,16 @@ final class DdtEsitiParser
     }
 
     /**
-     * @return mixed
+     * @return list<array<string, mixed>>
      */
     public function parseFile(string $filePath): array
     {
         $lines = file($filePath, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 
-        return array_map(fn ($line) => $this->parseLine($line), $lines);
+        if ($lines === false) {
+            throw new RuntimeException("Unable to read [{$filePath}].");
+        }
+
+        return array_map(fn (string $line): array => $this->parseLine($line), $lines);
     }
 }

@@ -6,9 +6,6 @@ namespace SmartDato\ArcoSpedizioni\Generators;
 
 final class TxtFileGenerator extends FileGenerator
 {
-    /**
-     * @var array<int, array<string, string|int>>
-     */
     protected array $structure = [
         // 1
         [
