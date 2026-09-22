@@ -13,7 +13,10 @@ final class LabelBuilder
      */
     public function zpl(array $data): string
     {
-        return view('arco-spedizioni-sdk::zpl', $data)->render();
+        /** @var view-string $view */
+        $view = 'arco-spedizioni-sdk::zpl';
+
+        return view($view, $data)->render();
     }
 
     /**
@@ -22,7 +25,10 @@ final class LabelBuilder
     public function pdf(array $data): string
     {
         // Load HTML
-        $html = view('arco-spedizioni-sdk::pdf', $data)->render();
+        /** @var view-string $view */
+        $view = 'arco-spedizioni-sdk::pdf';
+
+        $html = view($view, $data)->render();
 
         $dompdf = new Dompdf();
 
