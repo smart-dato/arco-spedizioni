@@ -7,18 +7,26 @@ namespace SmartDato\ArcoSpedizioni\Generators;
 abstract class FileGenerator
 {
     /**
-     * @var array<int, array<string, string|int>>
+     * The fixed-width layout: one entry per field, in file order.
+     *
+     * @var list<array{
+     *     field: string,
+     *     it: string,
+     *     description: string,
+     *     type: string,
+     *     length: int,
+     *     decimals?: int,
+     *     start: int,
+     *     end: int,
+     *     note?: string,
+     * }>
      */
     protected array $structure = [];
 
-    /**
-     * @var array<int, array<mixed>>
-     */
+    /** @var list<array<string, string>> */
     private array $data = [];
 
-    /**
-     * @var array<string, string|float|int|bool>
-     */
+    /** @var array<string, string> */
     private array $currentRecord = [];
 
     final public function setField(string $field, string $value): self

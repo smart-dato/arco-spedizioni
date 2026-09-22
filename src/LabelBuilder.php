@@ -5,15 +5,20 @@ declare(strict_types=1);
 namespace SmartDato\ArcoSpedizioni;
 
 use Dompdf\Dompdf;
-use RuntimeException;
 
 final class LabelBuilder
 {
+    /**
+     * @param  array<string, mixed>  $data
+     */
     public function zpl(array $data): string
     {
         return view('arco-spedizioni-sdk::zpl', $data)->render();
     }
 
+    /**
+     * @param  array<string, mixed>  $data
+     */
     public function pdf(array $data): string
     {
         // Load HTML
@@ -30,12 +35,7 @@ final class LabelBuilder
 
         $dompdf->loadHtml($html);
         $dompdf->render();
-        $pdf = $dompdf->output();
 
-        if ($pdf === null) {
-            throw new RuntimeException('Error while generating PDF');
-        }
-
-        return $pdf;
+        return $dompdf->output();
     }
 }
