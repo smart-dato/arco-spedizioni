@@ -2,6 +2,22 @@
 
 All notable changes to `arco-spedizioni-sdk` will be documented in this file.
 
+## 0.0.18 - 2026-09-23
+
+### What's Changed
+
+* Bump dependabot/fetch-metadata from 3.0.0 to 3.1.0 by @dependabot[bot] in https://github.com/smart-dato/arco-spedizioni/pull/12
+* Bump actions/checkout from 6 to 7 by @dependabot[bot] in https://github.com/smart-dato/arco-spedizioni/pull/13
+* Bump actions/checkout from 7.0.0 to 7.0.1 by @dependabot[bot] in https://github.com/smart-dato/arco-spedizioni/pull/14
+* fix(ci): drop the Laravel 10 leg from the test matrix by @michael-tscholl in https://github.com/smart-dato/arco-spedizioni/pull/15
+* ci: check code style instead of auto-committing it by @michael-tscholl in https://github.com/smart-dato/arco-spedizioni/pull/16
+* fix: green up arco-spedizioni — PHPStan at level max, and three stale tests by @michael-tscholl in https://github.com/smart-dato/arco-spedizioni/pull/18
+* ci: commit the changelog through the API so it is signed by @michael-tscholl in https://github.com/smart-dato/arco-spedizioni/pull/17
+* docs: update README by @michael-tscholl in https://github.com/smart-dato/arco-spedizioni/pull/19
+* docs: document the client code config by @michael-tscholl in https://github.com/smart-dato/arco-spedizioni/pull/20
+
+**Full Changelog**: https://github.com/smart-dato/arco-spedizioni/compare/0.0.15...0.0.18
+
 ## 0.0.14 - 2025-04-24
 
 **Full Changelog**: https://github.com/smart-dato/arco-spedizioni/compare/0.0.13...0.0.14
