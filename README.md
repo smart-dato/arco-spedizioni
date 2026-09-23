@@ -29,9 +29,10 @@ php artisan vendor:publish --tag="arco-spedizioni-sdk-config"
 ```dotenv
 ARCO_SPEDIZIONI_USERNAME=your-username
 ARCO_SPEDIZIONI_PASSWORD=your-password
+ARCO_SPEDIZIONI_CLIENT_CODE=your-client-code
 ```
 
-The config also defines `ARCO_SPEDIZIONI_CLIENT_CODE`, which the package does not currently read.
+The client code is sent as `CodCliente` in routing requests unless you pass `clientCode` to `ShipmentData`.
 
 ## Web services
 
