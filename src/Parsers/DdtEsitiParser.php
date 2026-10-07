@@ -52,9 +52,9 @@ final class DdtEsitiParser
     ];
 
     /**
-     * @return array<string, TrackingEvent|string|float>
-     */
-    /**
+     * R29EVE holds the TrackingEvent, or null when Arco sends a label the enum
+     * does not know yet; R29EVE_LABEL always holds the label as sent.
+     *
      * @return array<string, mixed>
      */
     public function parseLine(string $line): array
@@ -79,9 +79,13 @@ final class DdtEsitiParser
                     break;
 
                 case 'A':
-                    $record[$field['name']] = $field['name'] === 'R29EVE'
-                        ? TrackingEvent::fromLabel($rawValue)
-                        : $rawValue;
+                    if ($field['name'] === 'R29EVE') {
+                        $record['R29EVE'] = TrackingEvent::tryFromLabel($rawValue);
+                        $record['R29EVE_LABEL'] = $rawValue;
+                        break;
+                    }
+
+                    $record[$field['name']] = $rawValue;
                     break;
 
                 default:
