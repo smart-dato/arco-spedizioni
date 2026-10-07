@@ -114,7 +114,9 @@ $records = (new DdtEsitiParser())->parseFile('/path/to/esiti.txt');
 $record = (new DdtEsitiParser())->parseLine($line);
 ```
 
-Statuses map to the `TrackingEvent` enum: `DELIVERED`, `OUT_FOR_DELIVERY`, `IN_TRANSIT`, `STORAGE_OPENED` and `STORAGE_CLOSED`. `parseFile()` throws if the file cannot be read.
+Arco sends the event label in Italian (`Consegnata`, `Messa in Transito`, ...) or English (`DELIVERED`, `DEPARTED FROM VR`, ...) depending on the client account. Both map to the same `TrackingEvent` case: `DELIVERED`, `OUT_FOR_DELIVERY`, `IN_TRANSIT`, `STORAGE_OPENED`, `STORAGE_CLOSED`, `RECEIVED`, `LOADED`, `DEPARTED` and `ARRIVED`. The case value is the stable code to map against, whatever the language.
+
+`R29EVE` is `null` for a label the enum does not know yet, so one new status does not abort the file; `R29EVE_LABEL` always holds the label as sent. English hub events carry the hub's province code, which `TrackingEvent::hubFromLabel('DEPARTED FROM VR')` returns (`'VR'`). `parseFile()` throws if the file cannot be read.
 
 ## Labels
 
